@@ -1,0 +1,2403 @@
+  [1m[36m (897.7ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "author" character varying(255), "body" text, "post_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (61.9ms)[0m  CREATE  INDEX  "index_comments_on_post_id" ON "comments" USING btree ("post_id")
+  [1m[36m (120.1ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "title" character varying(255), "body" text, "publication_date" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (8.1ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (63.8ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.9ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (9.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140921061631')[0m
+  [1m[35m (10.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140920193529')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.8ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:54:59', '2014-09-21 17:54:59', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:54:59', '2014-09-21 17:54:59', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:54:59', '2014-09-21 17:54:59', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:54:59', '2014-09-21 17:54:59', 298486374)[0m
+  [1m[35m (37.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------------
+PostTest: test_should_not_save_post_without_title
+-------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:55:11', '2014-09-21 17:55:11', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:55:11', '2014-09-21 17:55:11', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:55:11', '2014-09-21 17:55:11', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:55:11', '2014-09-21 17:55:11', 298486374)[0m
+  [1m[35m (11.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------------
+PostTest: test_should_not_save_post_without_title
+-------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:56:30', '2014-09-21 17:56:30', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:56:30', '2014-09-21 17:56:30', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:56:30', '2014-09-21 17:56:30', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:56:30', '2014-09-21 17:56:30', 298486374)[0m
+  [1m[35m (14.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------
+PostTest: test_should_not_save_post_without_title
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:57:35', '2014-09-21 17:57:35', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:57:35', '2014-09-21 17:57:35', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:57:35', '2014-09-21 17:57:35', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:57:35', '2014-09-21 17:57:35', 298486374)[0m
+  [1m[35m (14.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------------------------------
+CommentTest: test_should_not_save_comment_without_author_and_body
+-----------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:57:45', '2014-09-21 17:57:45', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:57:45', '2014-09-21 17:57:45', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:57:45', '2014-09-21 17:57:45', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:57:45', '2014-09-21 17:57:45', 298486374)[0m
+  [1m[35m (15.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------------------
+CommentTest: test_should_not_save_comment_without_author_and_body
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:58:23', '2014-09-21 17:58:23', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:58:23', '2014-09-21 17:58:23', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:58:23', '2014-09-21 17:58:23', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:58:23', '2014-09-21 17:58:23', 298486374)[0m
+  [1m[35m (33.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------------
+PostTest: test_should_not_save_post_without_title
+-------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostTest: test_should_save_post_with_title
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-09-21 17:58:23.708601"], ["title", "Title post"], ["updated_at", "2014-09-21 17:58:23.708601"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:58:36', '2014-09-21 17:58:36', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:58:36', '2014-09-21 17:58:36', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:58:36', '2014-09-21 17:58:36', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:58:36', '2014-09-21 17:58:36', 298486374)[0m
+  [1m[35m (17.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------------
+PostTest: test_should_not_save_post_without_title
+-------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostTest: test_should_save_post_with_title
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-09-21 17:58:36.448542"], ["title", "Title post"], ["updated_at", "2014-09-21 17:58:36.448542"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:58:43', '2014-09-21 17:58:43', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:58:43', '2014-09-21 17:58:43', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:58:43', '2014-09-21 17:58:43', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:58:43', '2014-09-21 17:58:43', 298486374)[0m
+  [1m[35m (15.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------
+PostTest: test_should_not_save_post_without_title
+-------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostTest: test_should_save_post_with_title
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("created_at", "title", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2014-09-21 17:58:43.594930"], ["title", "Title post"], ["updated_at", "2014-09-21 17:58:43.594930"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:59:51', '2014-09-21 17:59:51', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 17:59:51', '2014-09-21 17:59:51', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:59:51', '2014-09-21 17:59:51', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 17:59:51', '2014-09-21 17:59:51', 298486374)[0m
+  [1m[35m (21.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------
+CommentTest: test_should_not_save_comment_only_author
+-----------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentTest: test_should_not_save_comment_only_body
+---------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:00:19', '2014-09-21 18:00:19', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:00:19', '2014-09-21 18:00:19', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:00:20', '2014-09-21 18:00:20', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:00:20', '2014-09-21 18:00:20', 298486374)[0m
+  [1m[35m (25.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------
+CommentTest: test_should_not_save_comment_only_author
+-----------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentTest: test_should_not_save_comment_only_body
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------------
+CommentTest: test_should_not_save_post_without_authot_and_body
+--------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:01:12', '2014-09-21 18:01:12', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:01:12', '2014-09-21 18:01:12', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:01:12', '2014-09-21 18:01:12', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:01:12', '2014-09-21 18:01:12', 298486374)[0m
+  [1m[35m (20.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------
+CommentTest: test_should_not_save_comment_only_author
+-----------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentTest: test_should_not_save_comment_only_body
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------------------
+CommentTest: test_should_not_save_comment_without_author_and_body
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------
+CommentTest: test_should_save_comment_with_author_and_body
+----------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:01:31', '2014-09-21 18:01:31', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:01:31', '2014-09-21 18:01:31', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:01:31', '2014-09-21 18:01:31', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:01:31', '2014-09-21 18:01:31', 298486374)[0m
+  [1m[35m (12.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------
+CommentTest: test_should_not_save_comment_only_author
+-----------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentTest: test_should_not_save_comment_only_body
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------------------
+CommentTest: test_should_not_save_comment_without_author_and_body
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------
+CommentTest: test_should_save_comment_with_author_and_body
+----------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("author", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["author", "authot comment"], ["body", "body comment"], ["created_at", "2014-09-21 18:01:31.548257"], ["updated_at", "2014-09-21 18:01:31.548257"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:01:50', '2014-09-21 18:01:50', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:01:50', '2014-09-21 18:01:50', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:01:50', '2014-09-21 18:01:50', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:01:50', '2014-09-21 18:01:50', 298486374)[0m
+  [1m[35m (16.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------------------
+CommentTest: test_should_not_save_comment_only_author
+-----------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (2.5ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentTest: test_should_not_save_comment_only_body
+---------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------------------
+CommentTest: test_should_not_save_comment_without_author_and_body
+-----------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------
+CommentTest: test_should_save_comment_with_author_and_body
+----------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("author", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["author", "authot comment"], ["body", "body comment"], ["created_at", "2014-09-21 18:01:50.405713"], ["updated_at", "2014-09-21 18:01:50.405713"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:03:31', '2014-09-21 18:03:31', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:03:31', '2014-09-21 18:03:31', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:03:31', '2014-09-21 18:03:31', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:03:31', '2014-09-21 18:03:31', 298486374)[0m
+  [1m[35m (12.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_create_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (4.7ms)[0m  SELECT COUNT(*) FROM "posts"
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (46.9ms)
+Completed 500 Internal Server Error in 3019ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (5.6ms)
+Completed 500 Internal Server Error in 2738ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:06:02', '2014-09-21 18:06:02', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:06:02', '2014-09-21 18:06:02', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:06:02', '2014-09-21 18:06:02', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:06:02', '2014-09-21 18:06:02', 298486374)[0m
+  [1m[35m (18.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentsControllerTest: test_should_destroy_comment
+---------------------------------------------------
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CommentsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CommentsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+CommentsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+CommentsControllerTest: test_should_show_comment
+------------------------------------------------
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_update_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:08:52', '2014-09-21 18:08:52', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:08:52', '2014-09-21 18:08:52', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:08:52', '2014-09-21 18:08:52', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:08:52', '2014-09-21 18:08:52', 298486374)[0m
+  [1m[35m (19.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentsControllerTest: test_should_destroy_comment
+---------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CommentsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CommentsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+CommentsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+CommentsControllerTest: test_should_show_comment
+------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_update_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:09:33', '2014-09-21 18:09:33', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:09:33', '2014-09-21 18:09:33', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:09:33', '2014-09-21 18:09:33', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:09:33', '2014-09-21 18:09:33', 298486374)[0m
+  [1m[35m (16.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentsControllerTest: test_should_destroy_comment
+---------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CommentsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CommentsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+CommentsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+CommentsControllerTest: test_should_show_comment
+------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_update_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:09:43', '2014-09-21 18:09:43', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:09:43', '2014-09-21 18:09:43', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:09:43', '2014-09-21 18:09:43', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:09:43', '2014-09-21 18:09:43', 298486374)[0m
+  [1m[35m (16.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentsControllerTest: test_should_destroy_comment
+---------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CommentsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CommentsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+CommentsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+CommentsControllerTest: test_should_show_comment
+------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_update_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:10:25', '2014-09-21 18:10:25', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:10:25', '2014-09-21 18:10:25', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:10:25', '2014-09-21 18:10:25', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:10:25', '2014-09-21 18:10:25', 298486374)[0m
+  [1m[35m (16.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+CommentsControllerTest: test_should_destroy_comment
+---------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CommentsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+CommentsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+CommentsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------
+CommentsControllerTest: test_should_show_comment
+------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_update_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:11:01', '2014-09-21 18:11:01', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:11:01', '2014-09-21 18:11:01', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:11:01', '2014-09-21 18:11:01', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:11:01', '2014-09-21 18:11:01', 298486374)[0m
+  [1m[35m (19.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_create_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (63.1ms)
+Completed 500 Internal Server Error in 3080ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (5.5ms)
+Completed 500 Internal Server Error in 2748ms
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:13:00', '2014-09-21 18:13:00', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:13:00', '2014-09-21 18:13:00', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:13:00', '2014-09-21 18:13:00', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:13:00', '2014-09-21 18:13:00', 298486374)[0m
+  [1m[35m (13.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_create_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (40.4ms)
+Completed 500 Internal Server Error in 3096ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (5.5ms)
+Completed 500 Internal Server Error in 2751ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:14:49', '2014-09-21 18:14:49', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:14:49', '2014-09-21 18:14:49', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:14:49', '2014-09-21 18:14:49', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:14:49', '2014-09-21 18:14:49', 298486374)[0m
+  [1m[35m (13.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_create_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (39.9ms)
+Completed 500 Internal Server Error in 3088ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (5.9ms)
+Completed 500 Internal Server Error in 2802ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:15:43', '2014-09-21 18:15:43', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:15:43', '2014-09-21 18:15:43', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:15:43', '2014-09-21 18:15:43', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:15:43', '2014-09-21 18:15:43', 298486374)[0m
+  [1m[35m (17.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (39.2ms)
+Completed 500 Internal Server Error in 3008ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:16:08', '2014-09-21 18:16:08', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:16:08', '2014-09-21 18:16:08', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:16:08', '2014-09-21 18:16:08', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:16:08', '2014-09-21 18:16:08', 298486374)[0m
+  [1m[35m (11.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:16:49', '2014-09-21 18:16:49', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:16:49', '2014-09-21 18:16:49', 298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:16:49', '2014-09-21 18:16:49', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:16:49', '2014-09-21 18:16:49', 298486374)[0m
+  [1m[35m (11.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:18:27', '2014-09-21 18:18:27', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:18:27', '2014-09-21 18:18:27', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:18:28', '2014-09-21 18:18:28', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:18:28', '2014-09-21 18:18:28', 298486374)[0m
+  [1m[35m (20.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:27:38', '2014-09-21 18:27:38', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:27:38', '2014-09-21 18:27:38', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:27:38', '2014-09-21 18:27:38', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:27:38', '2014-09-21 18:27:38', 298486374)[0m
+  [1m[35m (58.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (40.2ms)
+Completed 500 Internal Server Error in 3027ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (5.5ms)
+Completed 500 Internal Server Error in 2784ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:28:25', '2014-09-21 18:28:25', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:28:25', '2014-09-21 18:28:25', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:28:25', '2014-09-21 18:28:25', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:28:25', '2014-09-21 18:28:25', 298486374)[0m
+  [1m[35m (18.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (40.5ms)
+Completed 500 Internal Server Error in 3099ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (6.0ms)
+Completed 500 Internal Server Error in 2759ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:29:28', '2014-09-21 18:29:28', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:29:28', '2014-09-21 18:29:28', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:29:28', '2014-09-21 18:29:28', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:29:28', '2014-09-21 18:29:28', 298486374)[0m
+  [1m[35m (16.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (40.3ms)
+Completed 500 Internal Server Error in 3019ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (5.8ms)
+Completed 500 Internal Server Error in 2752ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:29:57', '2014-09-21 18:29:57', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:29:57', '2014-09-21 18:29:57', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:29:57', '2014-09-21 18:29:57', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:29:57', '2014-09-21 18:29:57', 298486374)[0m
+  [1m[35m (17.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (40.2ms)
+Completed 500 Internal Server Error in 3137ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (2.2ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (6.8ms)
+Completed 500 Internal Server Error in 2920ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:31:40', '2014-09-21 18:31:40', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:31:40', '2014-09-21 18:31:40', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:31:40', '2014-09-21 18:31:40', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:31:40', '2014-09-21 18:31:40', 298486374)[0m
+  [1m[35m (12.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (43.1ms)
+Completed 500 Internal Server Error in 3016ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+PostsControllerTest: test_should_show_post
+------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (6.0ms)
+Completed 500 Internal Server Error in 2809ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:32:57', '2014-09-21 18:32:57', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:32:57', '2014-09-21 18:32:57', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:32:57', '2014-09-21 18:32:57', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:32:57', '2014-09-21 18:32:57', 298486374)[0m
+  [1m[35m (21.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (40.2ms)
+Completed 500 Internal Server Error in 3084ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"1"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:33:24', '2014-09-21 18:33:24', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:33:24', '2014-09-21 18:33:24', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:33:24', '2014-09-21 18:33:24', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:33:24', '2014-09-21 18:33:24', 298486374)[0m
+  [1m[35m (17.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (40.7ms)
+Completed 500 Internal Server Error in 3016ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"id"=>"980190962", "body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:33:43', '2014-09-21 18:33:43', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:33:43', '2014-09-21 18:33:43', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:33:43', '2014-09-21 18:33:43', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:33:43', '2014-09-21 18:33:43', 298486374)[0m
+  [1m[35m (19.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments"[0m
+Processing by CommentsController#create as HTML
+  Parameters: {"post"=>{"title"=>"MyString"}, "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}
+Completed 404 Not Found in 1ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+CommentsControllerTest: test_should_destroy_comment
+---------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CommentsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+CommentsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+CommentsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------
+CommentsControllerTest: test_should_show_comment
+------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_update_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:35:42', '2014-09-21 18:35:42', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:35:42', '2014-09-21 18:35:42', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:35:42', '2014-09-21 18:35:42', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:35:42', '2014-09-21 18:35:42', 298486374)[0m
+  [1m[35m (12.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by CommentsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}}
+Completed 404 Not Found in 1ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CommentsControllerTest: test_should_destroy_comment
+---------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+CommentsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CommentsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+CommentsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+CommentsControllerTest: test_should_show_comment
+------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------
+CommentsControllerTest: test_should_update_comment
+--------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:47:03', '2014-09-21 18:47:03', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:47:03', '2014-09-21 18:47:03', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:47:03', '2014-09-21 18:47:03', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:47:03', '2014-09-21 18:47:03', 298486374)[0m
+  [1m[35m (20.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+PostsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 980190962]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 298486374]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (44.5ms)
+Completed 500 Internal Server Error in 3072ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"id"=>"980190962", "body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString"}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:49:10', '2014-09-21 18:49:10', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:49:10', '2014-09-21 18:49:10', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:49:10', '2014-09-21 18:49:10', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:49:10', '2014-09-21 18:49:10', 298486374)[0m
+  [1m[35m (18.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:49:41', '2014-09-21 18:49:41', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:49:41', '2014-09-21 18:49:41', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:49:41', '2014-09-21 18:49:41', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:49:41', '2014-09-21 18:49:41', 298486374)[0m
+  [1m[35m (19.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:49:51', '2014-09-21 18:49:51', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:49:51', '2014-09-21 18:49:51', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:49:51', '2014-09-21 18:49:51', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:49:51', '2014-09-21 18:49:51', 298486374)[0m
+  [1m[35m (11.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+PostsControllerTest: test_should_create_post_and_comment
+--------------------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+PostsControllerTest: test_should_destroy_post
+---------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+PostsControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+PostsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#new as HTML
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+PostsControllerTest: test_should_update_post
+--------------------------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by PostsController#update as HTML
+  Parameters: {"post"=>{"body"=>"MyText", "publication_date"=>"2014-09-20", "title"=>"MyString", "comment"=>{"author"=>"MyString", "body"=>"MyText", "post_id"=>nil}}, "id"=>"980190962"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "comments" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:51:17', '2014-09-21 18:51:17', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "comments" ("author", "body", "post_id", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', NULL, '2014-09-21 18:51:17', '2014-09-21 18:51:17', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:51:17', '2014-09-21 18:51:17', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "body", "publication_date", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2014-09-20', '2014-09-21 18:51:17', '2014-09-21 18:51:17', 298486374)[0m
+  [1m[35m (14.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "comments" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------------------
+CommentsControllerTest: test_should_create_1comment
+---------------------------------------------------
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------
+CommentsControllerTest: test_should_create_comment
+--------------------------------------------------
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

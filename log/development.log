@@ -1,0 +1,1635 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-21 19:28:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (9.3ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (69.7ms)
+  Rendered posts/index.html.erb within layouts/application (139.7ms)
+Completed 200 OK in 907ms (Views: 858.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 19:28:02 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-21 20:40:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (9.3ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (69.9ms)
+  Rendered posts/index.html.erb within layouts/application (89.1ms)
+Completed 200 OK in 371ms (Views: 272.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:15 +0200
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2014-09-21 20:40:20 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "comment"=>{"author"=>"dasd", "body"=>"dasd"}, "commit"=>"Add comment", "post_id"=>"9"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("author", "body", "created_at", "post_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "dasd"], ["body", "dasd"], ["created_at", "2014-09-21 18:40:20.825782"], ["post_id", 9], ["updated_at", "2014-09-21 18:40:20.825782"]]
+  [1m[35m (11.4ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/9
+Completed 302 Found in 25ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:40:20 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (58.4ms)
+  Rendered posts/show.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 141ms (Views: 135.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:21 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:40:28 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.6ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (14.9ms)
+  Rendered posts/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 93ms (Views: 90.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "comment"=>{"author"=>"jfiosdfjdios", "body"=>"diopsjfsdioj"}, "commit"=>"Add comment", "post_id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("author", "body", "created_at", "post_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "jfiosdfjdios"], ["body", "diopsjfsdioj"], ["created_at", "2014-09-21 18:40:35.084051"], ["post_id", 9], ["updated_at", "2014-09-21 18:40:35.084051"]]
+  [1m[35m (18.0ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/9
+Completed 302 Found in 26ms (ActiveRecord: 18.8ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (4.0ms)
+  Rendered posts/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 88ms (Views: 84.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:35 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:40:51 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (3.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (31.5ms)
+  Rendered posts/index.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 208ms (Views: 197.1ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "comment"=>{"author"=>"fsdfs", "body"=>"dksok\r\n"}, "commit"=>"Add comment", "post_id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("author", "body", "created_at", "post_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "fsdfs"], ["body", "dksok\r\n"], ["created_at", "2014-09-21 18:40:59.565220"], ["post_id", 9], ["updated_at", "2014-09-21 18:40:59.565220"]]
+  [1m[35m (8.2ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/9
+Completed 302 Found in 17ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (4.3ms)
+  Rendered posts/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 84ms (Views: 79.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:40:59 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:41:06 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.6ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (12.1ms)
+  Rendered posts/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 88ms (Views: 85.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:41:16 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  Rendered collection (0.1ms)
+  Rendered posts/_post.html.erb (6.4ms)
+  Rendered posts/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 87ms (Views: 83.0ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/posts/3" for 127.0.0.1 at 2014-09-21 20:41:20 +0200
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "id"=>"3"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 3]]
+  [1m[36m (17.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts
+Completed 302 Found in 23ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:41:20 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.6ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (11.8ms)
+  Rendered posts/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 177ms (Views: 174.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:21 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.6ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (12.9ms)
+  Rendered posts/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 99ms (Views: 94.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:23 +0200
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:41:24 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.3ms)
+  Rendered posts/_post.html.erb (7.7ms)
+  Rendered posts/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 88ms (Views: 84.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:41:27 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.3ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (11.7ms)
+  Rendered posts/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 88ms (Views: 86.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:41:27 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.3ms)
+  Rendered posts/_post.html.erb (7.4ms)
+  Rendered posts/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 85ms (Views: 82.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:41:29 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.3ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (10.9ms)
+  Rendered posts/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 180ms (Views: 177.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "comment"=>{"author"=>"dsada", "body"=>"dasdas"}, "commit"=>"Add comment", "post_id"=>"9"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("author", "body", "created_at", "post_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "dsada"], ["body", "dasdas"], ["created_at", "2014-09-21 18:41:33.372268"], ["post_id", 9], ["updated_at", "2014-09-21 18:41:33.372268"]]
+  [1m[36m (14.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/9
+Completed 302 Found in 23ms (ActiveRecord: 15.9ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (2.9ms)
+  Rendered posts/_post.html.erb (8.5ms)
+  Rendered posts/show.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 85ms (Views: 82.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:33 +0200
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "comment"=>{"author"=>"fsdfsdfsd", "body"=>"fsdfsdfsdfsd"}, "commit"=>"Add comment", "post_id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("author", "body", "created_at", "post_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "fsdfsdfsd"], ["body", "fsdfsdfsdfsd"], ["created_at", "2014-09-21 18:41:40.625480"], ["post_id", 9], ["updated_at", "2014-09-21 18:41:40.625480"]]
+  [1m[35m (17.8ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/9
+Completed 302 Found in 25ms (ActiveRecord: 18.5ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (3.0ms)
+  Rendered posts/_post.html.erb (8.2ms)
+  Rendered posts/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 85ms (Views: 81.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:41:40 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:41:44 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (3.7ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (16.3ms)
+  Rendered posts/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 92ms (Views: 89.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.4ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (33.0ms)
+  Rendered posts/index.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 127ms (Views: 115.9ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:27 +0200
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "comment"=>{"author"=>"otro", "body"=>"otro"}, "commit"=>"Add comment", "post_id"=>"9"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("author", "body", "created_at", "post_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["author", "otro"], ["body", "otro"], ["created_at", "2014-09-21 18:42:36.495113"], ["post_id", 9], ["updated_at", "2014-09-21 18:42:36.495113"]]
+  [1m[36m (51.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/9
+Completed 302 Found in 61ms (ActiveRecord: 52.7ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (3.7ms)
+  Rendered posts/_post.html.erb (9.7ms)
+  Rendered posts/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 87ms (Views: 83.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:36 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:42:40 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.8ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (18.3ms)
+  Rendered posts/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 103ms (Views: 100.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:42:47 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.5ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (32.2ms)
+  Rendered posts/index.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 137ms (Views: 114.2ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:48 +0200
+
+
+Started POST "/posts/9/comments" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "comment"=>{"author"=>"hhhhhhhhhhhhhh", "body"=>"hhhhhhhhhhhhhhhhhh"}, "commit"=>"Add comment", "post_id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("author", "body", "created_at", "post_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "hhhhhhhhhhhhhh"], ["body", "hhhhhhhhhhhhhhhhhh"], ["created_at", "2014-09-21 18:42:53.531997"], ["post_id", 9], ["updated_at", "2014-09-21 18:42:53.531997"]]
+  [1m[35m (15.6ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/9
+Completed 302 Found in 24ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (3.9ms)
+  Rendered posts/_post.html.erb (9.9ms)
+  Rendered posts/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 90ms (Views: 84.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:53 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:42:56 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (13.8ms)
+  Rendered posts/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 90ms (Views: 87.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:42:58 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (3.9ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (14.1ms)
+  Rendered posts/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 177ms (Views: 175.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:42:59 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:43:13 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.8ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (31.0ms)
+  Rendered posts/index.html.erb within layouts/application (45.5ms)
+Completed 200 OK in 124ms (Views: 113.9ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:14 +0200
+
+
+Started GET "/posts/9" for 127.0.0.1 at 2014-09-21 20:43:33 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  Rendered posts/_post.html.erb (10.6ms)
+  Rendered posts/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 89ms (Views: 85.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:43:37 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.1ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (14.6ms)
+  Rendered posts/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 181ms (Views: 178.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/10" for 127.0.0.1 at 2014-09-21 20:43:40 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"   ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.3ms)
+  Rendered posts/_post.html.erb (11.7ms)
+  Rendered posts/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 93ms (Views: 88.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/10" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (18.4ms)
+  Rendered posts/show.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 111ms (Views: 93.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:43:51 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:43:53 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.1ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (16.8ms)
+  Rendered posts/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 99ms (Views: 96.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/10" for 127.0.0.1 at 2014-09-21 20:43:56 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (4.0ms)
+  Rendered posts/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 163ms (Views: 160.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:43:57 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.3ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (16.6ms)
+  Rendered posts/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 101ms (Views: 98.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.8ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (32.2ms)
+  Rendered posts/index.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 126ms (Views: 115.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:19 +0200
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-09-21 20:44:21 +0200
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (11.5ms)
+  Rendered posts/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 92ms (Views: 90.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "post"=>{"title"=>"dasd", "body"=>"dasda", "publication_date(1i)"=>"2014", "publication_date(2i)"=>"9", "publication_date(3i)"=>"21"}, "commit"=>"New/Update post"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("body", "created_at", "publication_date", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "dasda"], ["created_at", "2014-09-21 18:44:25.451778"], ["publication_date", "2014-09-21"], ["title", "dasd"], ["updated_at", "2014-09-21 18:44:25.451778"]]
+  [1m[36m (14.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/12
+Completed 302 Found in 108ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/posts/12" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (4.6ms)
+  Rendered posts/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 83ms (Views: 80.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:44:25 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:44:27 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.4ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (19.5ms)
+  Rendered posts/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 101ms (Views: 97.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (5.6ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (36.0ms)
+  Rendered posts/index.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 132ms (Views: 121.3ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:33 +0200
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-09-21 20:45:38 +0200
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (6.1ms)
+  Rendered posts/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 163ms (Views: 161.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-09-21 20:45:48 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "post"=>{"title"=>"dasdas", "body"=>"asddasdas", "publication_date(1i)"=>"2014", "publication_date(2i)"=>"9", "publication_date(3i)"=>"20"}, "commit"=>"New/Update post"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "publication_date", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "asddasdas"], ["created_at", "2014-09-21 18:45:48.910042"], ["publication_date", "2014-09-20"], ["title", "dasdas"], ["updated_at", "2014-09-21 18:45:48.910042"]]
+  [1m[35m (14.8ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/13
+Completed 302 Found in 21ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/posts/13" for 127.0.0.1 at 2014-09-21 20:45:48 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (4.4ms)
+  Rendered posts/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 80ms (Views: 77.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:45:49 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:45:50 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (5.6ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (25.4ms)
+  Rendered posts/index.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 109ms (Views: 106.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-09-21 20:45:58 +0200
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (5.4ms)
+  Rendered posts/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 85ms (Views: 83.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "post"=>{"title"=>"1", "body"=>"1", "publication_date(1i)"=>"2014", "publication_date(2i)"=>"9", "publication_date(3i)"=>"19"}, "commit"=>"New/Update post"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "publication_date", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "1"], ["created_at", "2014-09-21 18:46:03.622990"], ["publication_date", "2014-09-19"], ["title", "1"], ["updated_at", "2014-09-21 18:46:03.622990"]]
+  [1m[35m (13.3ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/14
+Completed 302 Found in 21ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/posts/14" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (3.6ms)
+  Rendered posts/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 175ms (Views: 172.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:03 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:46:05 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.1ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (25.2ms)
+  Rendered posts/index.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 110ms (Views: 107.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-09-21 20:46:06 +0200
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (5.7ms)
+  Rendered posts/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 81ms (Views: 79.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "post"=>{"title"=>"2", "body"=>"2", "publication_date(1i)"=>"2014", "publication_date(2i)"=>"9", "publication_date(3i)"=>"20"}, "commit"=>"New/Update post"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "created_at", "publication_date", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "2"], ["created_at", "2014-09-21 18:46:11.644215"], ["publication_date", "2014-09-20"], ["title", "2"], ["updated_at", "2014-09-21 18:46:11.644215"]]
+  [1m[36m (15.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/15
+Completed 302 Found in 22ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/posts/15" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (4.7ms)
+  Rendered posts/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 84ms (Views: 80.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:11 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:46:13 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (28.2ms)
+  Rendered posts/index.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 191ms (Views: 187.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-09-21 20:46:26 +0200
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (9.6ms)
+  Rendered posts/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 90ms (Views: 88.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "post"=>{"title"=>"3", "body"=>"", "publication_date(1i)"=>"2014", "publication_date(2i)"=>"8", "publication_date(3i)"=>"21"}, "commit"=>"New/Update post"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("body", "created_at", "publication_date", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", ""], ["created_at", "2014-09-21 18:46:31.582091"], ["publication_date", "2014-08-21"], ["title", "3"], ["updated_at", "2014-09-21 18:46:31.582091"]]
+  [1m[36m (15.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/posts/16
+Completed 302 Found in 22ms (ActiveRecord: 15.8ms)
+
+
+Started GET "/posts/16" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1  [["id", 16]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (3.9ms)
+  Rendered posts/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 80ms (Views: 77.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:31 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:46:35 +0200
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.6ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (33.5ms)
+  Rendered posts/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 128ms (Views: 124.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-09-21 20:46:38 +0200
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (8.0ms)
+  Rendered posts/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 83ms (Views: 81.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p1WSdVMHW8kbbafe8WNDu171qp8/EwqGut88ShkYjp4=", "post"=>{"title"=>"4", "body"=>"44", "publication_date(1i)"=>"2014", "publication_date(2i)"=>"9", "publication_date(3i)"=>"21"}, "commit"=>"New/Update post"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "publication_date", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "44"], ["created_at", "2014-09-21 18:46:42.407168"], ["publication_date", "2014-09-21"], ["title", "4"], ["updated_at", "2014-09-21 18:46:42.407168"]]
+  [1m[35m (8.6ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/posts/17
+Completed 302 Found in 16ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/posts/17" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (3.8ms)
+  Rendered posts/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 174ms (Views: 171.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 20:46:42 +0200
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 20:46:44 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (4.6ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (38.2ms)
+  Rendered posts/index.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 122ms (Views: 114.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 21:03:01 +0200
+
+PG::ConnectionBad (FATAL:  la autentificaci?n Ident fall? para el usuario <<adminmbbxlj9>>
+):
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:888:in `initialize'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:888:in `new'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:888:in `connect'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:568:in `initialize'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /home/david/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /home/david/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.4) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/david/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/david/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/david/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/david/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/david/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/david/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/david/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 21:03:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.1ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (64.8ms)
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (151.3ms)
+  Rendered posts/index.html.erb within layouts/application (172.4ms)
+Completed 200 OK in 405ms (Views: 351.1ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 21:03:17 +0200
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-09-21 21:03:19 +0200
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.erb (9.4ms)
+  Rendered posts/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 93ms (Views: 91.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 21:03:20 +0200
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (5.8ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (50.0ms)
+  Rendered posts/index.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 188ms (Views: 183.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-09-21 21:30:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.1ms)[0m  SELECT "posts".* FROM "posts"  WHERE (publication_date <= '2014-09-21')  ORDER BY publication_date DESC
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 9]]
+  Rendered comments/_comment.html.erb (65.5ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 10]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 12]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 17]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 15]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 13]]
+  Rendered collection (0.0ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1[0m  [["post_id", 14]]
+  Rendered collection (0.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."post_id" = $1  [["post_id", 16]]
+  Rendered collection (0.0ms)
+  Rendered posts/_post.html.erb (153.1ms)
+  Rendered posts/index.html.erb within layouts/application (173.2ms)
+Completed 200 OK in 397ms (Views: 345.6ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/nga.css?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-21 21:30:26 +0200

@@ -1,0 +1,29 @@
+<!--ngaBlog David Prior!-->
+<div class="row">
+    <div id="post" class="">    
+       <h2><%= link_to_unless_current post.title, post, :class => "bg-success"%> </h2> 
+     <%= simple_format post.body %>
+    <p>
+      <strong><%= post.publication_date %></strong>
+      
+    </p>
+  <h2>Comments</h2>
+  <div id="comments">
+       <%= render :partial => post.comments %>
+  </div>
+  <%= form_for [post, Comment.new] do |f| %>
+          <p>
+  			  <div class="field">
+  			    <%= f.label :author, "Author"%><br>
+  			    <%= f.text_field :author %>
+  			  </div>
+  			  <div class="field">
+  			    <%= f.label :body, "Comment description"%><br>
+  			    <%= f.text_area :body %>
+  			  </div>
+          </p>
+          <p><%= f.submit "Add comment", :class => "btn btn-warning btn-sm" %></p>
+  <% end %>
+  </div>  
+</div>
+<hr class="small">

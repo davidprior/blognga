@@ -1,0 +1,9 @@
+<%= div_for comment do %>
+        <p>
+        		<strong><%= comment.author %> said:</strong> <%= comment.body %>
+                <strong>
+                 <p class="small"><%= time_ago_in_words(comment.created_at) %> ago</p>
+                </strong>
+                <br class="small">
+        </p>
+<% end %>

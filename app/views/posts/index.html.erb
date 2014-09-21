@@ -1,0 +1,26 @@
+<!--ngaBlog David Prior!-->
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+    <!-- Navigation -->
+    <%= link_to 'New Post', new_post_path, :class => "btn btn-dark btn-lg", :id => "menu-toggle" %>
+		<div class="bg-primary">
+			<div class="row">
+		    	<div class="col-lg-10 col-lg-offset-1">
+					<h1>NGABlog listing posts</h1>
+				</div>
+		    	<div class="col-lg-2 col-lg-offset-1">
+				</div>
+			</div>
+		</div>
+		<div class="bg-info fill">
+			<div class="row">
+		    	<div class="col-lg-8 col-lg-offset-1">
+		    		<br>
+					<%= render :partial => @posts %>
+					<br>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
